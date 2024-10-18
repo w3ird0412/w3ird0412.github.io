@@ -49,6 +49,7 @@ function draw()
 			if((x[i]-x[j])*(x[i]-x[j]) + (y[i]-y[j])*(y[i]-y[j]) <= (r[i]+r[j])*(r[i]+r[j]))      
 	        {
                     [dx[i], dx[j], dy[i], dy[j]] = [dx[j], dx[i], dy[j], dy[i]];
+			[color[i], color[j]] = [color[j], color[i]];  
 	        } 
 	    }
 	}
