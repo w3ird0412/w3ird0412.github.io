@@ -1,8 +1,8 @@
 // 定義變數
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
-let x = [117, canvas.width, canvas.width, 128], y = [0, 11, canvas.height, canvas.height], dx = [5, -5, -5, 5], dy = [5, 5, -5, -5], r = [30, 30, 30, 30], color = ["#CE0000", "#000000", "#FF8000", "#FF95CA"];
-let n = 4;
+let x = [0, canvas.width, canvas.width], y = [0, 0, canvas.height], dx = [5, -5, -5], dy = [5, 5, -5], r = [30, 30, 30], color = ["#CE0000", "#000000", "#FF8000"];
+let n = 3;
 
 
 // 畫圓形
