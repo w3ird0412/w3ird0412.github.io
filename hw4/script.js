@@ -25,8 +25,8 @@ function drawImg()
 	// parseInt(i/2) 讓兩時間格共用一張圖片，以讓動作更換不要過於頻繁
 	// 編號 i：0, 1, 2, 3, 4, 5, 6, 7, ...
 	// 對應圖：0, 0, 1, 1, 2, 2, 3, 3, ...
-    if(dx > 0)   	ctx.drawImage(walk[parseInt(i/3)%N], x, y, 100, 100);
-    else          	ctx.drawImage(rwalk[parseInt(i/3)%N], x, y, 100, 100);
+    if(dx > 0)   	ctx.drawImage(walk[parseInt(i/4)%N], x, y, 100, 100);
+    else          	ctx.drawImage(rwalk[parseInt(i/4)%N], x, y, 100, 100);
 }
 
 // 更新畫布
