@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/ethnic-totem-06.png" type="">
+
+  <title> 中原部落觀光網站 </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  
+    <style>
+    .top-bar {
+  width: 100%;
+  height: 80px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+  .modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: white;
+  width: 80%;
+  max-width: 400px;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+  </style>
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="images/hero-bg.jpg" alt="">
+    </div>
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+	   <div class="top-bar">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              中原部落觀光網站
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto ">
+              <li class="nav-item ">
+                <a class="nav-link" href="index.html">遊戲首頁 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="menu.html">積分記錄</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">部落介紹</a>
+              </li>
+              
+            </ul>
+            
+          </div>
+        </nav>
+	   </div>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+  
+  <div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>恭喜獲得40點積分</h2>
+    <p>可至積分紀錄查看目前獲得的積分</p>
+  </div>
+ </div>
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container">
+	 <center>
+	 <h2>傳統家屋</h2>
+     <a><img src="images/point1.jpg" width="500" height="300"></a>
+
+        <div class="col-md-6 ">
+          <div class="img-box">
+
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <p>
+             傳統家屋是中原部落一處文化傳承的場域，採用傳統的就地取採方法建造，連接處使用藤類進行最自然的搭建，旁設有穀倉，是極具文化與觀光價值的場所
+            </p>
+            <a id="musicBtn" href="#">
+              語音導覽
+            </a>
+          </div>
+        </div>
+	 </center>
+    </div>
+  </section>
+
+  <!-- end about section -->
+ 
+<audio id="myAudio" src="music/music.mp3"></audio>
+
+<script>
+// 讀取資料
+let count1 = Number(localStorage.getItem("counter1")) || 0;
+let hasCounted1 = localStorage.getItem("hasCounted1");
+
+// 如果還沒計數過 → 才 +1
+if (!hasCounted1) {
+    count1 += 40;
+    localStorage.setItem("counter1", count1);
+    localStorage.setItem("hasCounted1", "true"); // 記錄已經計過
+}
+
+
+const modal = document.getElementById("myModal");
+const closeBtn = document.querySelector(".close");
+
+// ❶ 網頁載入後自動跳出
+window.onload = () => {
+  const hasCounted1 = localStorage.getItem("hasCounted1");
+
+  if (!hasCounted1) {
+    modal.style.display = "block";
+  }
+};
+
+
+// ❷ 按 X 關閉
+closeBtn.onclick = () => {
+  modal.style.display = "none";
+}
+
+// ❸ 點背景也關閉（可選）
+window.onclick = (e) => {
+  if (e.target === modal) modal.style.display = "none";
+}
+
+const btn = document.getElementById("musicBtn");
+const audio = document.getElementById("myAudio");
+
+btn.addEventListener("click", (e) => {
+  e.preventDefault(); // 阻止 <a> 跳轉
+
+  if (audio.paused) {
+    audio.play();
+    btn.innerText = "暫停導覽";
+  } else {
+    audio.pause();
+    btn.innerText = "語音導覽";
+  }
+});
+</script>   
+
+
+
+</body>
+
+</html>

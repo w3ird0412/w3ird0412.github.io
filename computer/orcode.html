@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/ethnic-totem-06.png" type="">
+
+  <title> 中原部落觀光網站 </title>
+  
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <script src="https://unpkg.com/html5-qrcode"></script>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #000; /* 黑底更聚焦 */
+      color: #fff;
+      text-align: center;
+    }
+    #reader {
+      width: 90vw;
+      max-width: 400px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <h2>請將 QR Code 對準畫面</h2>
+  <div id="reader" style="width:300px; margin-top:20px;"></div>
+  <p id="result"></p>
+
+  <script>
+    const result = document.getElementById("result");
+    const html5QrCode = new Html5Qrcode("reader");
+
+    async function startScanner() {
+      try {
+        await html5QrCode.start(
+          { facingMode: "environment" }, // 後鏡頭
+          { fps: 10, qrbox: 250 },
+          (decodedText) => {
+            result.textContent = "掃到的內容：" + decodedText;
+            html5QrCode.stop();
+
+            // 如果是網址就直接跳轉
+            if (decodedText.startsWith("http://") || decodedText.startsWith("https://")) {
+              window.location.href = decodedText;
+            } else {
+              alert("掃到的內容不是網址喔！");
+            }
+          },
+          (errorMessage) => {
+            // 可忽略錯誤
+          }
+        );
+      } catch (err) {
+        result.textContent = "無法開啟相機：" + err;
+      }
+    }
+
+    // 進頁面就自動啟動
+    startScanner();
+  </script>
+</body>
+</html>
