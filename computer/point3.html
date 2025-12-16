@@ -169,25 +169,18 @@ if (!hasCounted3) {
 const modal = document.getElementById("myModal");
 const closeBtn = document.querySelector(".close");
 
-// ❶ 網頁載入後自動跳出
-window.onload = () => {
-  const hasCounted3 = localStorage.getItem("hasCounted3");
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("myModal");
+  const hasCounted1 = localStorage.getItem("hasCounted1");
 
-  if (!hasCounted3) {
+  if (!hasCounted1) {
     modal.style.display = "block";
   }
-};
 
-
-// ❷ 按 X 關閉
-closeBtn.onclick = () => {
-  modal.style.display = "none";
-}
-
-// ❸ 點背景也關閉（可選）
-window.onclick = (e) => {
-  if (e.target === modal) modal.style.display = "none";
-}
+  const closeBtn = document.querySelector(".close");
+  closeBtn.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; }
+});
 
 const btn = document.getElementById("musicBtn");
 const audio = document.getElementById("myAudio");
@@ -211,5 +204,6 @@ btn.addEventListener("click", (e) => {
 
 
 </html>
+
 
 
