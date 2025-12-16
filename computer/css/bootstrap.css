@@ -4218,6 +4218,20 @@ input[type="button"].btn-block {
   align-items: center;
 }
 
+@media (max-width: 991px) { /* 或者用你想要的斷點 */
+  .navbar-collapse {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center; /* 中央對齊 */
+  }
+  .navbar-nav {
+    flex-direction: row !important;
+  }
+  .nav-item {
+    margin: 0 10px; /* 間距 */
+  }
+}
+
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
