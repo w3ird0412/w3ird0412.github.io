@@ -49,7 +49,7 @@
   .modal {
   display: none; 
   position: fixed;
-  z-index: 1000;
+  z-index: 2000;
   left: 0;
   top: 0;
   width: 100%;
@@ -80,6 +80,14 @@
 </head>
 
 <body class="sub_page">
+	
+  <div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>恭喜獲得40點積分</h2>
+    <p>可至積分紀錄查看目前獲得的積分</p>
+  </div>
+ </div>
 
   <div class="hero_area">
     <div class="bg-box">
@@ -113,13 +121,6 @@
     <!-- end header section -->
   </div>
   
-  <div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>恭喜獲得40點積分</h2>
-    <p>可至積分紀錄查看目前獲得的積分</p>
-  </div>
- </div>
 
   <!-- about section -->
 
@@ -210,4 +211,5 @@ btn.addEventListener("click", (e) => {
 
 
 </html>
+
 
